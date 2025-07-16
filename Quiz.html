@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NIRANJAN CREATIONS</title>
+  <style>                                                                                                                body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: navy;
+      padding: 20px;                                                                                                     }
+                                                                                                                         marquee {
+      color: yellow;
+      background-color: maroon;
+      font-size: 35px;
+    }
+
+    #timer {
+      color: lime;
+      background-color: teal;
+      font-size: 35px;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+
+    #status {
+      color: navy;
+      font-size: 20px;
+      margin-top: 80px;
+      margin-bottom: 20px;
+    }
+
+    .question {
+      margin-bottom: 30px;
+    }
+
+    .question h3 {
+      color:blue;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .options button {
+      background-color: olive;
+      color:lime;
+      font-size: 20px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid cyan;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    .options button.correct {
+      background-color:purple;
+    }
+
+    .options button.wrong {
+      background-color: red;
+    }
+
+    #submitBtn {
+      color: lime;
+      background-color: teal;
+      font-size: 25px;
+      position: absolute;
+      left: 250px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <marquee behaviour="scroll" direction="right" scrollamount="10">C-PROGRAMMING QUIZ</marquee>
+  <div id="timer">TIME LEFT:</div>
+  <div id="status"></div>
+  <div id="quizContainer"></div>
+  <audio id="m" src="https://github.com/Niranjan164/COMPILER/raw/main/click-151673_073339.mp3"></audio>
+  <button id="submitBtn" onclick="submitQuiz()">SUBMIT</button>
+
+  <script>
+    let music = document.getElementById("m");
+    if (localStorage.getItem("s")) {
+      document.body.innerHTML = "<h1 style='color:navy;'>Quiz already taken from this device!</h1>";
+      throw new Error("Quiz blocked");
+    }
+
+    const questions = [
+      {
+        question: "1. Who is the father of C Programming?",
+        options: ["Dennis Ritchie", "Bjarne Stroustrup", "James Gosling", "Guido van Rossum"],
+        answer: 0
+      },
+      {
+        question: "2. What is the size of 'int' in C?",
+        options: ["2 bytes", "4 bytes", "Depends on system", "8 bytes"],
+        answer: 2
+      },
+      {
+        question: "3. What is the correct format to include header?",
+        options: ["#include<stdio.h>", "<include>stdio.h", "include<stdio.h>", "#header<stdio.h>"],
+        answer: 0
+      }
+    ];
+
+    let score = 0;
+    let attempted = new Array(questions.length).fill(false);
+    let quizEnded = false;
+    let totalSeconds = 60 * 60;
+    const timerDiv = document.getElementById("timer");
+    const statusDiv = document.getElementById("status");
+
+    function formatTime(secs) {
+      let m = Math.floor(secs / 60);
+      let s = secs % 60;
+      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function updateTimer() {
+      timerDiv.textContent = "TIME LEFT: " + formatTime(totalSeconds);
+      if (totalSeconds <= 0) {
+        endQuiz();
+      }
+      totalSeconds--;
+    }
+
+    updateTimer();
+    const countdown = setInterval(updateTimer, 1000);
+    const quizContainer = document.getElementById("quizContainer");
+
+    questions.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<h3>${q.question}</h3>`;
+
+      const optionsDiv = document.createElement("div");
+      optionsDiv.className = "options";
+
+      q.options.forEach((opt, j) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+
+        btn.onclick = () => {
+          if (attempted[i] || quizEnded) return;
+          attempted[i] = true;
+
+          if (j === q.answer) {
+            score += 1;
+            btn.classList.add("correct");
+          } else {
+            score -= 4;
+            btn.classList.add("wrong");
+            optionsDiv.children[q.answer].classList.add("correct");
+          }
+
+          for (let b of optionsDiv.children) {
+            b.disabled = true;
+          }
+        };
+
+        optionsDiv.appendChild(btn);
+      });
+
+      div.appendChild(optionsDiv);
+      quizContainer.appendChild(div);
+    });
+
+    function submitQuiz() {
+      music.play();
+      if (quizEnded) return;
+      endQuiz();
+    }
+
+    function endQuiz() {
+      quizEnded = true;
+      clearInterval(countdown);
+      localStorage.setItem("s", score);
+      window.open("https://hacker1514.github.io./quiz/C.html", "_self");
+    }
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        statusDiv.innerText = "YOU CLOSED THE WINDOW, SO CONSIDERING AS COPYING! QUIZ ENDED.";
+        endQuiz();
+      }
+    });
+
+    window.addEventListener("beforeunload", function (e) {
+      if (!quizEnded) {
+        endQuiz();
+      }
+    });
+  </script>
+</body>
+</html>

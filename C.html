@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NIRANJAN CREATIONS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: white;
+      color:navy;
+      text-align: center;
+    }
+    input, button {
+      padding: 12px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+    }
+    input {
+      background: olive;
+      color: lime;
+      width: 250px;
+      text-transform: uppercase;
+    }
+    button {
+      background: red;
+      color: yellow;
+      cursor: pointer;
+    }
+    #inputPage {
+      height:200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #certificatePage {
+      display: none;
+      position: relative;
+      width: 1323px; /* A4 landscape at 96dpi */
+      height: 794px;
+      margin: auto;
+    }
+    #certificateImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+    #userNameDisplay {
+      position: absolute;
+      top: 36%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 50px;
+      font-weight: bold;
+      color: olive;
+      z-index: 1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      user-select: none;
+      pointer-events: none;
+    }
+    #scoreDisplay {
+      position: absolute;
+      top: 48%;
+      left: 250PX;
+      width: 100%;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      color: olive;
+      z-index: 1;
+      text-transform: uppercase;
+      user-select: none;
+      pointer-events: none;
+    }
+    #buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+    <marquee behaviour="scroll" direction="right" scrollamount="10" style="font-size:35px;background-color:maroon;color:yellow">CERTIFICATE</marquee>
+  <audio id="bgMusic" src="https://raw.githubusercontent.com/hacker1514/Store/main/back_110812.mp3" autoplay loop></audio>
+  <audio id="clickSound" src="https://github.com/Niranjan164/COMPILER/raw/main/click-151673_073339.mp3"></audio>
+
+  <div id="inputPage">
+    <h1>ENTER YOUR NAME FOR CERTIFICATE</h1>
+    <input type="text" id="userName" placeholder="Your Name" />
+    <button onclick="generateCertificate()">GET CERTIFICATE</button>
+  </div>
+
+  <div id="certificatePage">
+    <img id="certificateImage" src="https://hacker1514.github.io./quiz/c.png" alt="Certificate Background">
+    <div id="userNameDisplay"></div>
+    <div id="scoreDisplay"></div>
+  </div>
+
+  <div id="buttons" style="display: none;">
+    <button onclick="goBack()">BACK</button>
+    <button onclick="downloadAsImage()">DOWNLOAD</button>
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <script>
+    const clickSound = document.getElementById("clickSound");
+
+    function playClick() {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+
+    function generateCertificate() {
+      const name = document.getElementById("userName").value.trim();
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+      playClick();
+      document.getElementById("inputPage").style.display = "none";
+      document.getElementById("certificatePage").style.display = "block";
+      document.getElementById("buttons").style.display = "flex";
+      document.getElementById("userNameDisplay").textContent = name.toUpperCase();
+
+
+      let score = parseInt(localStorage.getItem("s")) || 0;
+      if (score < 0) score = 0;
+      document.getElementById("scoreDisplay").textContent = score + " %";
+    }
+
+    function goBack() {
+      playClick();
+      document.getElementById("certificatePage").style.display = "none";
+      document.getElementById("buttons").style.display = "none";
+      document.getElementById("inputPage").style.display = "flex";
+      document.getElementById("userName").value = "";
+    }
+
+    function downloadAsImage() {
+      playClick();
+      const certDiv = document.getElementById("certificatePage");
+
+      html2canvas(certDiv, { useCORS: true, scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'CERTIFICATE.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 1.0);
+        link.click();
+      });
+    }
+  </script>
+
+</body>
+</html>

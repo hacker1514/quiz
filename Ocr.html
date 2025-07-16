@@ -53,7 +53,7 @@
         const timeStr = timeMatch[1];
         const parsedTime = new Date(now.toDateString() + ' ' + timeStr);
         const diffHours = (now - parsedTime) / 1000 / 3600;
-        return diffHours <=100;
+        return diffHours <=1;
       })();
       const has2100 = text.includes("2100");
       const hasAccount = text.includes("XXXXXX7668");

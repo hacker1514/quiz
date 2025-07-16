@@ -12,7 +12,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       background: white;
-      color:navy;
+      color: navy;
       text-align: center;
     }
     input, button {
@@ -34,7 +34,7 @@
       cursor: pointer;
     }
     #inputPage {
-      height:200px;
+      height: 200px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -43,9 +43,10 @@
     #certificatePage {
       display: none;
       position: relative;
-      width: 1323px; /* A4 landscape at 96dpi */
-      height: 794px;
+      width: 1111px;
+      height: 778px;
       margin: auto;
+      border: 4px solid maroon;
     }
     #certificateImage {
       width: 100%;
@@ -60,7 +61,7 @@
     }
     #userNameDisplay {
       position: absolute;
-      top: 36%;
+      top: 37%;
       left: 0;
       width: 100%;
       text-align: center;
@@ -75,8 +76,8 @@
     }
     #scoreDisplay {
       position: absolute;
-      top: 48%;
-      left: 250PX;
+      top: 47%;
+      left: 190px;
       width: 100%;
       text-align: center;
       font-size: 40px;
@@ -93,32 +94,43 @@
       justify-content: center;
       gap: 20px;
     }
+    marquee {
+      width: 100%;
+    }
   </style>
 </head>
 <body>
-    <marquee behaviour="scroll" direction="right" scrollamount="10" style="font-size:35px;background-color:maroon;color:yellow">CERTIFICATE</marquee>
-  <audio id="bgMusic" src="https://raw.githubusercontent.com/hacker1514/Store/main/back_110812.mp3" autoplay loop></audio>
+
+  <!-- Top heading marquee -->
+  <marquee behaviour="scroll" direction="right" scrollamount="10" style="font-size:35px;background-color:maroon;color:yellow;">
+    CERTIFICATE
+  </marquee>
+
+  <!-- Sounds -->
   <audio id="clickSound" src="https://github.com/Niranjan164/COMPILER/raw/main/click-151673_073339.mp3"></audio>
 
+  <!-- Input Page -->
   <div id="inputPage">
     <h1>ENTER YOUR NAME FOR CERTIFICATE</h1>
     <input type="text" id="userName" placeholder="Your Name" />
     <button onclick="generateCertificate()">GET CERTIFICATE</button>
   </div>
 
+  <!-- Certificate Page -->
   <div id="certificatePage">
     <img id="certificateImage" src="https://hacker1514.github.io./quiz/c.png" alt="Certificate Background">
     <div id="userNameDisplay"></div>
     <div id="scoreDisplay"></div>
   </div>
 
+  <!-- Action Buttons -->
   <div id="buttons" style="display: none;">
     <button onclick="goBack()">BACK</button>
     <button onclick="downloadAsImage()">DOWNLOAD</button>
   </div>
 
+  <!-- Scripts -->
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-
   <script>
     const clickSound = document.getElementById("clickSound");
 
@@ -139,7 +151,6 @@
       document.getElementById("buttons").style.display = "flex";
       document.getElementById("userNameDisplay").textContent = name.toUpperCase();
 
-
       let score = parseInt(localStorage.getItem("s")) || 0;
       if (score < 0) score = 0;
       document.getElementById("scoreDisplay").textContent = score + " %";
@@ -154,7 +165,13 @@
     }
 
     function downloadAsImage() {
+      if (localStorage.getItem("c") === "1") {
+        alert("Certificate already downloaded from this device.");
+        return;
+      }
+
       playClick();
+
       const certDiv = document.getElementById("certificatePage");
 
       html2canvas(certDiv, { useCORS: true, scale: 2 }).then(canvas => {
@@ -162,6 +179,7 @@
         link.download = 'CERTIFICATE.jpg';
         link.href = canvas.toDataURL('image/jpeg', 1.0);
         link.click();
+        localStorage.setItem("c", "1");
       });
     }
   </script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>                                                                                                               <head>
+  <title>NIRANJAN CREATIONS</title>                                                                                    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+  <style>
+    body {
+      background-color: white;
+      color:navy;                                                                                                          font-family: monospace;
+      padding: 20px;                                                                                                       text-align: center;
+    }                                                                                                                    input, button {
+      padding: 10px;
+      margin: 10px;
+      background: #111;
+      color: #0f0;
+      border: 1px solid #0f0;
+      border-radius: 5px;
+    }
+    #output {
+      font-size: 24px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <marquee behaviour="scroll" direction="right" scrollamount="10" style="color:yellow;background-color:maroon;font-size:35px;">VERIFY YOUR PAYMENT RECIEPT</marquee>
+  <h1 style="color:navy;text-align:center;">UPLOAD YOUR UPI RECEIPT BELOW</h1>
+  <audio id="m"  src="https://github.com/Niranjan164/COMPILER/raw/main/click-151673_073339.mp3" ></audio>
+  <input style="color:lime;background-color:purple;" type="file" id="imageInput" accept="image/*">
+  <button onclick="processImage()" style="color:lime;background-color:teal;font-size:25px;">VERIFY</button>
+
+  <div id="output"></div>
+
+  <script>
+    async function processImage() {
+            let music=document.getElementById("m");
+            music.play();
+      const file = document.getElementById("imageInput").files[0];
+      const output = document.getElementById("output");
+      output.innerHTML = "VERIFYING FROM NIRANJAN DATA BASES.............";
+
+      if (!file) {
+        alert("Please upload an image.");
+        return;
+      }
+
+      const { data: { text } } = await Tesseract.recognize(file, 'eng');
+
+      const hasTransaction = text.includes("Transaction Successful");
+      const hasTime = (() => {
+        const timeMatch = text.match(/(\d{1,2}:\d{2} ?[APap][Mm])/);
+        if (!timeMatch) return false;
+        const now = new Date();
+        const timeStr = timeMatch[1];
+        const parsedTime = new Date(now.toDateString() + ' ' + timeStr);
+        const diffHours = (now - parsedTime) / 1000 / 3600;
+        return diffHours <=100;
+      })();
+      const has2100 = text.includes("2100");
+      const hasAccount = text.includes("XXXXXX7668");
+
+      if (hasTransaction && hasTime && has2100 && hasAccount) {
+        output.innerHTML = "TRANSACTION SUCCES,VERIFIED FROM NIRANJAN SERVER";
+              window.open("https://hacker1514.github.io./quiz/Instructions.html","_self");
+      } else {
+        output.innerHTML = "TRANSACTION IS NOT FOUND IN NIRANJAN SERVER! PLEASE TRY PAYMENT AGAIN.";
+      }
+    }
+  </script>
+</body>
+</html>

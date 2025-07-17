@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clear Local Storage Keys</title>
+  <style>                                                                                                                body {
+      background-color: black;
+      color: lime;
+      font-family: Arial, sans-serif;
+      text-align: center;                                                                                                  padding-top: 100px;
+    }                                                                                                                    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      margin: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: red;
+      color: yellow;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>REMOVE LOCAL STORAGE KEYS</h1>
+  <button onclick="removeKey('s')">REMOVE SCORE (s)</button>
+  <button onclick="removeKey('c')">REMOVE CERTIFICATE FLAG (c)</button>
+
+  <script>
+    function removeKey(key) {
+      if (localStorage.getItem(key) !== null) {
+        localStorage.removeItem(key);
+        alert(`Key '${key}' removed from localStorage.`);
+      } else {
+        alert(`Key '${key}' not found in localStorage.`);
+      }
+    }
+  </script>
+
+</body>
+</html>

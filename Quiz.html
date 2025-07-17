@@ -2,12 +2,15 @@
 <html>
 <head>
   <title>NIRANJAN CREATIONS</title>
-  <style>                                                                                                                body {
+  <style>
+    body {
       font-family: Arial, sans-serif;
       background-color: white;
       color: navy;
-      padding: 20px;                                                                                                     }
-                                                                                                                         marquee {
+      padding: 20px;
+    }
+
+    marquee {
       color: yellow;
       background-color: maroon;
       font-size: 35px;
@@ -62,7 +65,7 @@
     }
 
     .options button.wrong {
-      background-color: red;
+      background-color: purple;
     }
 
     #submitBtn {
@@ -95,20 +98,414 @@
 
     const questions = [
       {
-        question: "1. Who is the father of C Programming?",
-        options: ["Dennis Ritchie", "Bjarne Stroustrup", "James Gosling", "Guido van Rossum"],
-        answer: 0
+        question: "1. C is _______________________ language?",
+        options: ["coding", "programming", "imperative", "none of the above"],
+        answer: 1
       },
       {
-        question: "2. What is the size of 'int' in C?",
-        options: ["2 bytes", "4 bytes", "Depends on system", "8 bytes"],
+        question: "2.C discovered in _______ year?",
+        options: ["1971", "1972", "1959", "1970"],
+        answer: 3
+      },
+      {
+        question: "3.C developed in which laboratorys?",
+        options: ["Van laboratores", "C-laboratores", "Bell laboratores", "ANSI laboratores"],
         answer: 2
       },
+            {
+        question: "4.C used in ?",
+        options: [" web development", "data managment", "browser creating", "server connecting"],                               answer: 1                                                                                                          },
+        {
+        question: "5. C files can run in ?",
+        options: ["any where", "Browser", "they never run", "compiler"],
+                answer: 3                                                                                                          },
+        {
+        question: "6. choose the incorrect section in c ?",
+        options: ["linking section", "compiling section", "definition section", "main section"],                               answer: 1                                                                                                          },
+        {
+        question: "7. system() function present in which header file ?",
+        options: ["stdio.h", "stdlib.h", "math.h", "unistd.h"],
+                answer: 1                                                                                                          },
+        {
+        question: "8. what is full form of ANSI ?",
+        options: ["American National c-space Instutite", "American National Standard Institute", "American Native standard Institue", "American National Server Instutite"],
+                answer: 1                                                                                                          },
+           {
+        question: "9. which is not a data type ?",
+        options: ["int", "char", "float", "var"],
+                   answer: 3                                                                                                         },
+        {
+        question: "10. FILE present in which header file ?",
+        options: ["stdio.h", "stdlib.h", "file.h", "string.h"],
+                answer: 0                                                                                                          },
+        {
+                question: "11. int a=1;</br>int b=a;</br>a=b-a;</br>if(a+b==b){</br>printf(\"HI\");</br>}else{</br>printf(\"HELLO\");</br>}",
+        options: ["HI", "HELLO", "condition wrong", "None of the above"],
+                answer: 0                                                                                                          },
+        {
+        question: "12. incorrect condition ?",
+                options: ["if(a>b){.......}", "for(int a;a<a;a++){......}", "while(1){.......}", "none of the above"],               answer:1                                                                                                          },
+        {
+        question: "13. which is not a conditional statment ?",
+                options: ["do{......}", "while()", "if()", "switch(){case....}"],
+                answer: 0                                                                                                          },
+           {
+        question: "14. what is the use of conditional statments ?",
+        options: ["to making code attractive ", "to doing code for reason", "to verifying priority", "None of the above"],
+                   answer: 2                                                                                                          },
+            {
+        question: "15. correct syntax for if else ?",
+                    options: ["if(condition){....}else{....}", "ifelse{.......}", "elseif{........}", "none of the above"],
+                    answer: 0                                                                                                          },
+            {
+        question: "16. which can perform task atleast once,when it fails in codition ?",
+        options: ["while", "do while", "for", "if"],
+                    answer: 1                                                                                                          },
+           {
+          question: "17. int a=10</br>a++</br>if(a==11){</br>printf(\"ITS 11\");</br>}else{</br>printf(\"Its 10\");} ?",
+        options: ["ITS 11", "Its 10", "ITS 10", "none of the above"],
+                   answer: 0                                                                                                          },
+            {
+                    question: "18. int a=1</br>int b=10;</br>a=a-b;</br>a=a+b;</br>if(a==20){</br>printf(\"HI\n\");</br>}else{</br>printf(\"HELLO\n\");</br>} ?",
+        options: ["HI", "HELLO", "hello", "none of the above"],
+                    answer: 0                                                                                                          },
+            {
+        question: "19.system intractive header file ?",
+        options: ["stdlib.h", "stdio.h", "unistd.h", "string.h"],
+                    answer: 0                                                                                                          },
+            {
+        question: "20.conditional statments present in which header file ?",
+        options: ["stdio.h", "stdlib.h", "unistd.h", "string.h"],
+                    answer: 0                                                                                                          },
+               {
+        question: "21. what is header file ?",
+        options: ["coding file", "pre defined functions file", "linking file ", "programming file"],                               answer: 1                                                                                                          },
+            {
+        question: "22. what are looping statments ?",
+        options: ["to doing an action at once", "to doing an action repeatedly ", "to doing an action repeatedly up to condition fails", "none of the above"],
+                    answer: 2                                                                                                          },
+           {
+        question: "23. which is not a loop ?",
+        options: ["for", "switch()", "while", "do while"],
+                   answer: 1                                                                                                          },
+            {
+        question: "24. syntax of for loop ?",
+                    options: ["for(initialization;condition;increment/decrement)", "for(condition;initialization;increment/decrement)", "for(initilization;increment/decrement;condition)", "none of the above"],                               answer: 0                                                                                                          },
+           {
+                   question: "25. for(int i=0;i<=10;i++){.....</br>.} ",
+        options: ["it performs 10 times", "it performs 9 times", "it performs 11 times", "it performs 8 times"],                               answer: 2                                                                                                          },
+            {
+                    question: "26.Time complexity for</br>for(int i=0;i<=10;i++){.........} ",
+        options: ["O(1)", "O(n)", "O(n^2)", "O(n^3)"],
+                    answer: 0                                                                                                          },
+            {
+                    question: "27. space complexity for</br>while(i&ltn){......} ",
+        options: ["O(n)", "O(n-1)", "O(logn)", "none of the above"],
+                    answer: 0                                                                                                          },
+            {
+                    question: "28. check the program </br> #include&ltstdio.h&gt</br>int main(){</br>for(int i=0;i&ltn;i++){</br> printf(\"HI\");}</br>return 0;</br>} ",
+        options: ["it is correct", "it is wrong", "some what okay", "none of the above"],
+                    answer: 1                                                                                                          },
+               {                                                                                                                question: "29.verify program </br> #include&ltstdio.h&gt</br>int main(){</br>int a=10;</br> a=a+a;</br> a=a-a;</br> a=a;</br> int b=a+a;</br> a=a+b;</br>printf(\"a+b=%d\",a+b);</br>return 0;</br>} ",                                      options: ["a+b=10", "a+b=20", "a+b=0", "a+b=40"],                                                                        answer: 2                                                                                                          },
+               {                                                                                                                question: "30. break statment present in ?",                                                                      options: ["stdio.h", "stdlib.h", "unistd.h", "string.h"],                                                                        answer: 0                                                                                                          },
+            {
+        question: "31. continue statment present in ?",
+        options: ["stdio.h", "stdlib.h", "unistd.h", "string.h"],
+                    answer: 0                                                                                                          },
+            {
+        question: "32. output for below code </br>#include&ltstdio.h&gt</br>int main(){</br>int a=1;</br>for(a;a&lt=10;a++){</br>if(a==5){</br>continue;}else{</br>printf(\"HI\");</br>}</br>}</br>return 0;</br>} ",
+        options: ["Hi prints 9 times", "Hi prints 10 times", "Hi prints 4 times", "Hi never prints"],                               answer: 0                                                                                                          },
+        {
+        question: "33.what is array ?",
+        options: ["primitive data type", "Non-primitive data type", "int data type", "float data type"],                               answer: 1                                                                                                          },
+         {
+                 question: "34. Verify below program</br> #include&ltstdio.h&gt</br>int main(){</br>int a[10]={1,2,3,4,5};</br>printf(\"%d\",a[9]);</br>return 0;</br>} ",
+        options: ["9", "0", "1", "Garbage value"],
+                   answer: 3                                                                                                          },
+            {
+        question: "35.Array present in which header file ?",
+        options: ["stdio.h", "stdlib.h", "unistd.h", "None of the above"],
+                    answer: 0                                                                                                          },
+   {
+        question: "36.Time complexity of linear search ?",
+        options: ["O(1)", "O(n)", "O(n^2)", "O(n^3"],
+        answer: 1                                                                                                          },
+            {
+                    question: "37.Time complexity for below code</br>#include&ltstdio.h&gt</br>int main(){</br>for(int i=0;i&lt=10;i++){</br>printf(\"%d \",i);</br>}</br>for(int i=0;i&lt20;i++){</br>printf(\"%d \",i);</br>return 0;</br>}}",
+        options: ["O(0)", "O(30)", "O(1)", "program is wrong"],
+                    answer: 2                                                                                                          },
+            {
+        question: "38. espeak is found in which header file ?",
+        options: ["stdlib.h", "stdio.h", "unistd.h", "none of the above"],
+                    answer: 3                                                                                                          },
+            {
+        question: "39.string is a ?",
+        options: ["single charecter", "double charecter ", "more than one charecter", "None of the above"],                               answer: 2                                                                                                          },
+            {
+        question: "40. Array is a ?",
+        options: ["Linear data structure", "Non-linear data structure", "It is a user defined data type", "None of the above"],
+                    answer: 1                                                                                                          },
       {
-        question: "3. What is the correct format to include header?",
-        options: ["#include<stdio.h>", "<include>stdio.h", "include<stdio.h>", "#header<stdio.h>"],
-        answer: 0
-      }
+        question: "41.Array can store ?",
+        options: ["dissimillar data", "combination of all data", "half simillar and dissimillar", "simillar data"],                               answer: 3                                                                                                          },
+            {
+        question: "42.what is file ?",
+        options: ["group of charecters", "group of integers", "collection of images", "collection of information"],                               answer: 3                                                                                                          },
+            {
+        question: "43.What is binary file ?",
+        options: ["010101010....file", "machine readable file", "0,1 combinational file", "None of the above"],                               answer: 1                                                                                                          },
+            {
+        question: "44.fopen() used for ?",
+        options: ["file closing", "file opening", "file opening and adding", "None of the above"],                               answer: 1                                                                                                          },
+           {
+        question: "45. to open a file we need ?",
+        options: ["structer", "union", "pointer", "variable"],
+                   answer: 2                                                                                                          },
+            {
+        question: "46. How to read a file ?",
+        options: ["fscanf()", "fprintf()", "freadf()", "None of the above"],
+                    answer: 0                                                                                                          },
+            {
+        question: "47. Which is not a file type ?",
+        options: [".bin", ".txt", ".int", ".jpeg"],
+                    answer: 2                                                                                                          },
+            {
+        question: "48. 0 stands for ?",
+        options: ["binary number", "Binary data", "integer data", "Based on situation, its different"],                               answer: 3                                                                                                          },
+            {
+        question: "49.What is url ?",
+        options: ["File address", "path to directory", "website link", "path to file"],
+                    answer: 3                                                                                                          },
+            {
+        question: "50.What is mp3 ?",
+        options: ["audio file", "video file", "binary file", "None of the above"],
+                    answer: 2                                                                                                          },
+            {
+        question: "51.How to listen mp3 file ?",
+        options: ["through espeak", "through base64", "through mpv", "through speak1532"],
+                    answer: 2                                                                                                          },
+           {
+        question: "52.what is data ?",
+        options: ["Collection of information", "set of charecters", "set of simillar charecters", "set of dissimillar charecters"],
+                   answer: 0                                                                                                          },
+           {
+        question: "53.Which is not a searching technique ?",
+        options: ["Linear search", "Bubble search", "Binary search", "None of the above"],
+                   answer: 1                                                                                                          },
+            {
+        question: "54. Array is a ?",
+        options: ["Dynamic memory allocation ", "Static memory allocation", "Both", "None of the above"],
+                    answer: 2                                                                                                          },
+            {
+        question: "55.What is input for binary search ?",
+        options: ["un sorted array", "variable", "sorted array", "None of the above"],
+                    answer: 2                                                                                                          },
+{
+        question: "56.Time complexity for binary search ?",
+        options: ["O(1)", "O(log n)", "O(n)", "None of the above"],
+        answer: 1                                                                                                          },
+            {
+        question: "57.How to search Element in array ?",
+        options: ["with loop", "with comparing each element", "printing", "all the above"],
+                    answer: 3                                                                                                          },
+            {
+                    question: "58. #include&ltstdio.h&gt</br>int main(){</br>int a[]={3,2,9};</br>for(int i=0;i&lt3;i++){</br>for(int j=i+1;j&lt3;j++){</br>if(a[i]&lta[j]){</br>int t=a[i];</br>a[i]=a[j];</br>a[j]=t;</br>}</br>}</br>}</br>for(int i=0;i&lt3;i++){</br>printf(\"%d \",a[i])</br>}</br>return 0;</br>}",
+        options: ["9 3 2", "2 3 9", "9 2 3", "None of the above"],
+                    answer: 0                                                                                                          },
+            {
+                    question: "59. verify below code</br>#include&ltstdio.h&gt</br>int main(){</br>int a=10;</br>printf(\"%d \",a);</br> } ",
+        options: ["code is correct ", "code is incorrect", "code some what okay", "none of the above"],
+                    answer: 1                                                                                                          },
+            {
+                    question: "60.what is result of</br>int a=10;</br>a++;</br>printf(\"%d\",a);</br>",
+        options: ["11", "10", "9", "8"],
+                    answer: 0                                                                                                          },
+            {
+        question: "61. what is syntax for struct ?",
+                    options: ["struct variable_name{.......}", "struct{......}", "struct condition{......}","none of the above"],
+                    answer: 0                                                                                                          },
+            {
+        question: "62. which is not a sorting technique ?",
+        options: ["selection sort", "Heap sort", "insertion sort", "none of the above"],
+                    answer: 3                                                                                                          },
+            {
+        question: "63. Time complexity for bubble sort ?",
+        options: ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
+                    answer: 1                                                                                                          },
+            {
+        question: "64. Time complexity for selection sort ?",
+        options: ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
+                    answer: 1                                                                                                          },
+            {
+        question: "65. Time complexity for Insertion sort ?",
+        options: ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
+                    answer: 2                                                                                                          },
+            {
+        question: "66. Sorting is a ?",
+        options: ["arranging data in unorganised manner", "Arranging data in organised manner", "Arranging data in human understandable manner", "None of the above"],
+                    answer: 1                                                                                                          },
+            {
+        question: "67. Which two sorting techniques are simillar ?",
+        options: ["Heap,Bubble", "Bubble,selection", "Bubble,Insertion", "Insertion,selection"],
+                    answer: 1                                                                                                          },
+            {
+        question: "68. What is time complexity for heap sort ?",
+        options: ["O(1)", "O(n)", "O(n log n)", "O(logn)"],
+                    answer: 2                                                                                                          },
+            {
+        question: "69. which are not a sorting techniques ?",
+        options: ["counting sort", "radix sort ", "Bucket sort", "None of the above"],
+                    answer: 3                                                                                                          },
+            {
+        question: "70. suitable data type to store the simillar data ?",
+        options: ["array", "structure", "union", "none of the above"],
+                    answer: 3                                                                                                          },
+            {
+        question: "71. suitable data type to store the dissimillar data ?",
+        options: ["array", "structure", "union", "Both 2 & 3"],
+                    answer: 3                                                                                                          },
+            {
+        question: "72. what is a number  0101010000100001 ?",
+        options: ["2701", "2721", "3710", "2709"],
+                    answer: 1                                                                                                          },
+            {
+        question: "73. which number system is this X1234 ?",
+        options: ["octadecimal", "hexadecimal", "hexaoctadecimal", "none of the above"],
+                    answer: 2                                                                                                          },
+            {
+        question: "74. which is octal number for 72 ?",
+        options: ["120", "110", "130", "160"],
+                    answer: 1                                                                                                          },
+  {
+    question: "75. Which of the following is NOT a characteristic of static memory allocation?",
+    options: ["Fixed size", "Allocated at compile time", "Efficient for memory reuse", "Stack-based allocation"],
+    answer: 2
+  },
+  {
+    question: "76. In C, which function is used for dynamic memory allocation?",
+    options: ["malloc()", "alloc()", "memory()", "store()"],
+    answer: 0
+  },
+  {
+    question: "77. What does the 'free()' function do in C?",
+    options: ["Allocates new memory", "Increases buffer size", "Releases dynamically allocated memory", "Initializes memory to zero"],
+    answer: 2
+  },
+  {
+    question: "78. Which storage class in C allocates memory only once and retains value between function calls?",
+    options: ["auto", "extern", "register", "static"],
+    answer: 3
+  },
+  {
+    question: "79. Which type of memory allocation allows resizing during runtime?",
+    options: ["Static", "Automatic", "Dynamic", "Fixed"],
+    answer: 2
+  },
+  {
+    question: "80. Which of the following is used to reallocate memory in C?",
+    options: ["realloc()", "renew()", "remalloc()", "resize()"],
+    answer: 0
+  },
+  {
+    question: "81. What is a dangling pointer?",
+    options: ["Pointer pointing to uninitialized memory", "Pointer to deallocated memory", "Pointer with NULL value", "Pointer with garbage address"],
+    answer: 1
+  },
+  {
+    question: "82. Which storage class is used for global variables accessed by multiple files?",
+    options: ["register", "extern", "auto", "volatile"],
+    answer: 1
+  },
+  {
+    question: "83. Which of the following memory allocation methods can lead to memory leaks if not managed properly?",
+    options: ["Static allocation", "Dynamic allocation", "Stack allocation", "Compile-time allocation"],
+    answer: 1
+  },
+  {
+    question: "84. Which SQL command is used to create a new table in a database?",
+    options: ["INSERT", "CREATE", "UPDATE", "SELECT"],
+    answer: 1
+  },
+  {
+    question: "85. What is normalization in databases used for?",
+    options: ["Reduce memory usage", "Speed up queries", "Avoid redundancy", "Create indexes"],
+    answer: 2
+  },
+  {
+    question: "86. What does the term ACID stand for in DBMS?",
+    options: ["Access, Consistency, Integrity, Durability", "Atomicity, Consistency, Isolation, Durability", "Accuracy, Complexity, Isolation, Database", "Access, Control, Isolation, Durability"],
+    answer: 1
+  },
+  {
+    question: "87. Which normal form eliminates partial dependency?",
+    options: ["1NF", "2NF", "3NF", "BCNF"],
+    answer: 1
+  },
+  {
+    question: "88. Which of the following best describes a foreign key?",
+    options: ["A unique identifier for records", "A key that links to the primary key in another table", "A key that holds unique values", "A key that cannot be null"],
+    answer: 1
+  },
+  {
+    question: "89. In C, which memory region is used for dynamic allocation?",
+    options: ["Stack", "Heap", "Code segment", "Data segment"],
+    answer: 1
+  },
+  {
+    question: "90. What is the default value of a static int variable in C?",
+    options: ["0", "Garbage", "1", "NULL"],
+    answer: 0
+  },
+  {
+    question: "91. What is a memory leak?",
+    options: ["Losing reference to dynamically allocated memory", "Reallocating same pointer", "Accessing invalid pointer", "Stack overflow"],
+    answer: 0
+  },
+  {
+    question: "92. Which SQL keyword is used to prevent duplication of rows in the result set?",
+    options: ["DISTINCT", "UNIQUE", "LIMIT", "PRIMARY"],
+    answer: 0
+  },
+  {
+    question: "93. Which of the following storage classes is fastest due to CPU register use?",
+    options: ["static", "extern", "register", "auto"],
+    answer: 2
+  },
+  {
+    question: "94. What does the keyword 'volatile' imply in C?",
+    options: ["Memory can be changed only once", "Memory is fast", "Value can change unexpectedly", "Constant value"],
+    answer: 2
+  },
+  {
+    question: "95. Which of the following is a DDL (Data Definition Language) command?",
+    options: ["SELECT", "DROP", "INSERT", "UPDATE"],
+    answer: 1
+  },
+  {
+    question: "96. Which memory allocation function in C initializes allocated memory to zero?",
+    options: ["malloc()", "calloc()", "realloc()", "alloc()"],
+    answer: 1
+  },
+  {
+    question: "97. What is the key difference between malloc() and calloc()?",
+    options: ["malloc() initializes memory, calloc() does not", "calloc() initializes memory, malloc() does not", "Both are same", "malloc() returns null, calloc() doesn’t"],
+    answer: 1
+  },
+  {
+    question: "98. What is referential integrity in a database?",
+    options: ["Ensuring each table has a primary key", "Preventing null values", "Maintaining consistency between foreign keys and referenced keys", "Avoiding duplicate data"],
+    answer: 2
+  },
+  {
+    question: "99. Which keyword is used to define a constant variable in C?",
+    options: ["define", "fixed", "const", "static"],
+    answer: 2
+  },
+  {
+    question: "100. Which of the following best explains why memory fragmentation occurs in dynamic memory allocation?",
+    options: ["Too many malloc() calls", "Freeing memory in random order", "All memory is static", "Memory blocks are always contiguous"],
+    answer: 1
+  },
     ];
 
     let score = 0;
@@ -156,9 +553,8 @@
             score += 1;
             btn.classList.add("correct");
           } else {
-            score -= 4;
+            score -= 1;
             btn.classList.add("wrong");
-            optionsDiv.children[q.answer].classList.add("correct");
           }
 
           for (let b of optionsDiv.children) {
